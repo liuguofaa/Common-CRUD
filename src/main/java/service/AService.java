@@ -1,7 +1,7 @@
 package service;
 
 
-import modal.A;
+import model.A;
 import service.base.IService;
 
 /**

@@ -1,4 +1,4 @@
-package modal;
+package model;
 
 /**
  * @author guofa.liu

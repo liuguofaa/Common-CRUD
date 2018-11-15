@@ -2,7 +2,7 @@ package mapper;
 
 
 import mapper.base.BaseMapper;
-import modal.A;
+import model.A;
 
 /**
  * @author guofa.liu

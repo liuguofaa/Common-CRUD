@@ -1,6 +1,6 @@
 package service;
 
-import modal.C;
+import model.C;
 import service.base.IService;
 
 /**

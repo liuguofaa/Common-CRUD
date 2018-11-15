@@ -1,6 +1,6 @@
 package service.impl;
 
-import modal.C;
+import model.C;
 import org.springframework.stereotype.Service;
 import service.CService;
 import service.base.BaseService;
