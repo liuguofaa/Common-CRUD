@@ -1,11 +1,13 @@
 package controller;
 
+import model.Orders;
+import model.Users;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-import service.AService;
-import service.BService;
-import service.CService;
+import service.OrdersService;
+import service.UsersService;
 
 /**
  * @author guofa.liu
@@ -18,26 +20,19 @@ import service.CService;
 public class BaseController {
 
     @Autowired
-    private AService aService;
+    private UsersService usersService;
     @Autowired
-    private BService bService;
-    @Autowired
-    private CService cService;
+    private OrdersService ordersService;
 
 
-    @RequestMapping("/a")
-    public String getA(){
-        return aService.get();
+    @RequestMapping("/users/{id}")
+    public Users getUsers(@PathVariable Long id){
+        return usersService.selectById(id);
     }
 
-    @RequestMapping("/b")
-    public String getB(){
-        return bService.get();
-    }
-
-    @RequestMapping("/c")
-    public String getC(){
-        return cService.get();
+    @RequestMapping("/orders/{id}")
+    public Orders getB(@PathVariable Long id){
+        return ordersService.selectById(id);
     }
 
 }

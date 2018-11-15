@@ -1,7 +1,9 @@
 package service.base;
 
-import mapper.base.BaseMapper;
+import com.baomidou.mybatisplus.core.mapper.BaseMapper;
 import org.springframework.beans.factory.annotation.Autowired;
+
+import java.io.Serializable;
 
 /**
  * @author guofa.liu
@@ -15,7 +17,22 @@ public class BaseService<T> implements IService<T> {
     private BaseMapper<T> baseMapper;
 
     @Override
-    public String get() {
-        return baseMapper.get();
+    public int insert(T entity) {
+        return baseMapper.insert(entity);
+    }
+
+    @Override
+    public int deleteById(Serializable id) {
+        return baseMapper.deleteById(id);
+    }
+
+    @Override
+    public T selectById(Serializable id) {
+        return baseMapper.selectById(id);
+    }
+
+    @Override
+    public int updateById(T entity) {
+        return baseMapper.updateById(entity);
     }
 }
