@@ -1,1 +1,2 @@
-通用service
+### SpringBoot脚手架
+### 通用CRUD
