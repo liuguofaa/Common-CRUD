@@ -1,9 +1,9 @@
-package service.impl;
+package com.company.service.impl;
 
-import model.Users;
+import com.company.model.Users;
 import org.springframework.stereotype.Service;
-import service.UsersService;
-import service.base.BaseService;
+import com.company.service.UsersService;
+import com.company.service.base.BaseService;
 
 /**
  * @author guofa.liu

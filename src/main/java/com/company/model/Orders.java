@@ -1,4 +1,4 @@
-package model;
+package com.company.model;
 
 /**
  * @author guofa.liu

@@ -1,7 +1,7 @@
-package service;
+package com.company.service;
 
-import model.Users;
-import service.base.IService;
+import com.company.model.Users;
+import com.company.service.base.IService;
 
 /**
  * @author guofa.liu

@@ -1,13 +1,14 @@
-package controller;
+package com.company.controller;
 
-import model.Orders;
-import model.Users;
+import com.company.common.Page;
+import com.company.model.Orders;
+import com.company.model.Users;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
-import service.OrdersService;
-import service.UsersService;
+import com.company.service.OrdersService;
+import com.company.service.UsersService;
 
 /**
  * @author guofa.liu
@@ -30,8 +31,19 @@ public class BaseController {
         return usersService.selectById(id);
     }
 
+    @RequestMapping("/users/add")
+    public Boolean addUsers(Users users){
+        usersService.insert(users);
+        return true;
+    }
+
+    @RequestMapping("/users/{pageNum}/{pageSize}")
+    public Page<Users> getUsers(@PathVariable Integer pageNum, @PathVariable Integer pageSize){
+        return usersService.selectAllPage(pageNum, pageSize);
+    }
+
     @RequestMapping("/orders/{id}")
-    public Orders getB(@PathVariable Long id){
+    public Orders getOrders(@PathVariable Long id){
         return ordersService.selectById(id);
     }
 

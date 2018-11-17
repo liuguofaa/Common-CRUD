@@ -1,9 +1,9 @@
-package service.impl;
+package com.company.service.impl;
 
-import model.Orders;
+import com.company.model.Orders;
 import org.springframework.stereotype.Service;
-import service.OrdersService;
-import service.base.BaseService;
+import com.company.service.OrdersService;
+import com.company.service.base.BaseService;
 
 /**
  * @author guofa.liu

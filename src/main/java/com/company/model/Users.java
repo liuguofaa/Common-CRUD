@@ -1,4 +1,8 @@
-package model;
+package com.company.model;
+
+import com.baomidou.mybatisplus.annotation.TableField;
+
+import java.util.Date;
 
 /**
  * @author guofa.liu
@@ -11,6 +15,8 @@ public class Users {
     private String name;
     private Integer age;
     private String email;
+    @TableField("create_time")
+    private Date createTime;
 
     public Long getId() {
         return id;
@@ -42,5 +48,13 @@ public class Users {
 
     public void setEmail(String email) {
         this.email = email;
+    }
+
+    public Date getCreateTime() {
+        return createTime;
+    }
+
+    public void setCreateTime(Date createTime) {
+        this.createTime = createTime;
     }
 }

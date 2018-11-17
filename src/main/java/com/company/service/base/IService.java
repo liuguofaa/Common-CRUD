@@ -1,4 +1,7 @@
-package service.base;
+package com.company.service.base;
+
+import com.company.common.Page;
+import com.github.pagehelper.PageInfo;
 
 import java.io.Serializable;
 
@@ -16,4 +19,6 @@ public interface IService<T> {
     T selectById(Serializable id);
 
     int updateById(T entity);
+
+    Page<T> selectAllPage(int pageNum, int pageSize);
 }

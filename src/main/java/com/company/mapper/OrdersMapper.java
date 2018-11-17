@@ -1,7 +1,7 @@
-package mapper;
+package com.company.mapper;
 
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
-import model.Orders;
+import com.company.model.Orders;
 
 /**
  * @author guofa.liu

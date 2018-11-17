@@ -1,6 +1,8 @@
-package service.base;
+package com.company.service.base;
 
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
+import com.company.common.Page;
+import com.github.pagehelper.PageHelper;
 import org.springframework.beans.factory.annotation.Autowired;
 
 import java.io.Serializable;
@@ -34,5 +36,11 @@ public class BaseService<T> implements IService<T> {
     @Override
     public int updateById(T entity) {
         return baseMapper.updateById(entity);
+    }
+
+    @Override
+    public Page<T> selectAllPage(int pageNum, int pageSize) {
+        PageHelper.startPage(pageNum, pageSize);
+        return new Page<T>(baseMapper.selectList(null));
     }
 }
