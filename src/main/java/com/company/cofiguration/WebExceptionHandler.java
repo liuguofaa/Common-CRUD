@@ -32,6 +32,6 @@ public class WebExceptionHandler {
     public R.ResponseData exception(Exception e) {
         e.printStackTrace();
         log.error("服务器异常", e);
-        return R.fail("服务器异常");
+        return R.serverFail("服务器异常");
     }
 }

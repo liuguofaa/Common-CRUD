@@ -11,30 +11,47 @@ public class R {
         return success(null);
     }
     public static  ResponseData success(Object data){
-        return new ResponseData(true, "", data);
+        return new ResponseData(ResponseCode.CODE_200.getCode(), "", data);
     }
     public static ResponseData fail(String message){
-        return new ResponseData(false, message, null);
+        return new ResponseData(ResponseCode.CODE_400.getCode(), message, null);
+    }
+    public static ResponseData serverFail(String message){
+        return new ResponseData(ResponseCode.CODE_500.getCode(), message, null);
+    }
+
+    public enum ResponseCode{
+
+        CODE_200(200),CODE_400(400),CODE_500(500);
+
+        private final Integer code;
+
+        ResponseCode(Integer code){
+            this.code = code;
+        }
+        public Integer getCode() {
+            return code;
+        }
     }
 
     public static class ResponseData{
 
-        private Boolean success;
+        private Integer code;
         private String message;
         private Object data;
 
-        public ResponseData(Boolean success, String message, Object data) {
-            this.success = success;
+        public ResponseData(Integer code, String message, Object data) {
+            this.code = code;
             this.message = message;
             this.data = data;
         }
 
-        public Boolean getSuccess() {
-            return success;
+        public Integer getCode() {
+            return code;
         }
 
-        public void setSuccess(Boolean success) {
-            this.success = success;
+        public void setCode(Integer code) {
+            this.code = code;
         }
 
         public String getMessage() {
