@@ -1,8 +1,8 @@
 package com.company.cofiguration;
 
-import com.alibaba.fastjson.serializer.SerializerFeature;
 import com.alibaba.fastjson.support.config.FastJsonConfig;
 import com.alibaba.fastjson.support.spring.FastJsonHttpMessageConverter;
+import com.company.common.FastJson;
 import org.springframework.beans.PropertyValuesEditor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.autoconfigure.http.HttpMessageConverters;
@@ -12,16 +12,13 @@ import org.springframework.http.MediaType;
 import org.springframework.http.converter.StringHttpMessageConverter;
 import org.springframework.web.bind.WebDataBinder;
 import org.springframework.web.bind.support.WebBindingInitializer;
-import org.springframework.web.servlet.config.annotation.WebMvcConfigurer;
 import org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter;
 
 import java.nio.charset.Charset;
 import java.text.DateFormat;
 import java.text.SimpleDateFormat;
-import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Date;
-import java.util.List;
 
 /**
  * @author guofa.liu@kingtroldata.com
@@ -41,7 +38,7 @@ public class WeMVCConfiguration {
     public HttpMessageConverters fastJsonConfigure(){
         FastJsonHttpMessageConverter fastJsonHttpMessageConverter = new FastJsonHttpMessageConverter();
         FastJsonConfig fastJsonConfig = new FastJsonConfig();
-        fastJsonConfig.setSerializerFeatures(SerializerFeature.WriteMapNullValue, SerializerFeature.WriteDateUseDateFormat, SerializerFeature.WriteNullStringAsEmpty);
+        fastJsonConfig.setSerializerFeatures(FastJson.DefaultSerializerFeature);
         fastJsonConfig.setDateFormat("yyyy-MM-dd HH:mm:ss");
         fastJsonHttpMessageConverter.setFastJsonConfig(fastJsonConfig);
         fastJsonHttpMessageConverter.setDefaultCharset(Charset.defaultCharset());

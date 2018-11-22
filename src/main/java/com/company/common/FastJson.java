@@ -16,7 +16,7 @@ public class FastJson {
     /**
      * fastjson默认序列化参数
      */
-    SerializerFeature[] DefaultSerializerFeature = new SerializerFeature[]{SerializerFeature.WriteMapNullValue, SerializerFeature.WriteDateUseDateFormat, SerializerFeature.WriteNullStringAsEmpty};
+    public static SerializerFeature[] DefaultSerializerFeature = new SerializerFeature[]{SerializerFeature.WriteMapNullValue, SerializerFeature.WriteDateUseDateFormat, SerializerFeature.WriteNullStringAsEmpty};
 
 
     /**
