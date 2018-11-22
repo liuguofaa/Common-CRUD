@@ -13,16 +13,31 @@ public class R {
     public static  ResponseData success(Object data){
         return new ResponseData(ResponseCode.CODE_200.getCode(), "", data);
     }
+
+    /**
+     * 业务中应该使用这个
+     * @param message
+     * @return
+     */
     public static ResponseData fail(String message){
         return new ResponseData(ResponseCode.CODE_400.getCode(), message, null);
     }
+
+    /**
+     * 这两个一般ExceptionHandler中使用
+     * @param message
+     * @return
+     */
     public static ResponseData serverFail(String message){
         return new ResponseData(ResponseCode.CODE_500.getCode(), message, null);
+    }
+    public static ResponseData diyFail(ResponseCode code, String message){
+        return new ResponseData(code.getCode(), message, null);
     }
 
     public enum ResponseCode{
 
-        CODE_200(200),CODE_400(400),CODE_500(500);
+        CODE_200(200),CODE_400(400),CODE_401(401),CODE_500(500);
 
         private final Integer code;
 
