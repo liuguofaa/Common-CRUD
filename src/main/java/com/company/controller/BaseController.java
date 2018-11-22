@@ -1,18 +1,18 @@
 package com.company.controller;
 
-import com.company.common.Page;
 import com.company.common.R;
-import com.company.common.ServerException;
-import com.company.model.Orders;
 import com.company.model.Users;
+import com.company.valid.group.ValidGroupAdd;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import com.company.service.OrdersService;
 import com.company.service.UsersService;
 
-import javax.sql.rowset.serial.SerialException;
+import javax.validation.Valid;
+
 
 /**
  * @author guofa.liu
@@ -22,6 +22,7 @@ import javax.sql.rowset.serial.SerialException;
 
 @RestController
 @RequestMapping("base")
+@Validated
 public class BaseController {
 
     @Autowired
@@ -36,7 +37,8 @@ public class BaseController {
     }
 
     @RequestMapping("/users/add")
-    public R.ResponseData addUsers(Users users){
+    @Validated(ValidGroupAdd.class)
+    public R.ResponseData addUsers(@Valid Users users){
         usersService.insert(users);
         return R.success();
     }
