@@ -2,12 +2,14 @@ package com.company.cofiguration;
 
 import com.company.common.R;
 import com.company.common.ServerException;
-import lombok.extern.java.Log;
 import lombok.extern.slf4j.Slf4j;
-import org.springframework.web.HttpMediaTypeNotSupportedException;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.ResponseBody;
+
+import javax.validation.ConstraintViolation;
+import javax.validation.ConstraintViolationException;
+import java.util.Set;
 
 /**
  * @author guofa.liu@kingtroldata.com
@@ -20,6 +22,12 @@ import org.springframework.web.bind.annotation.ResponseBody;
 @ResponseBody
 public class WebExceptionHandler {
 
+
+    @ExceptionHandler(ConstraintViolationException.class)
+    public R.ResponseData constraintViolationException(ConstraintViolationException e) {
+        Set<ConstraintViolation<?>> set =  e.getConstraintViolations();
+        return R.diyFail(R.ResponseCode.CODE_401, set.isEmpty() ? "" : set.iterator().next().getMessage());
+    }
 
     @ExceptionHandler(ServerException.class)
     public R.ResponseData serverException(ServerException e) {
