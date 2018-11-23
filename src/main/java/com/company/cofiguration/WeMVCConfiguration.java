@@ -2,7 +2,7 @@ package com.company.cofiguration;
 
 import com.alibaba.fastjson.support.config.FastJsonConfig;
 import com.alibaba.fastjson.support.spring.FastJsonHttpMessageConverter;
-import com.company.common.FastJson;
+import com.company.common.utils.FastJson;
 import org.springframework.beans.PropertyValuesEditor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.autoconfigure.http.HttpMessageConverters;

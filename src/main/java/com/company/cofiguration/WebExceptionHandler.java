@@ -1,7 +1,7 @@
 package com.company.cofiguration;
 
-import com.company.common.R;
-import com.company.common.ServerException;
+import com.company.common.resp.R;
+import com.company.common.exception.ServerException;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.web.bind.annotation.ControllerAdvice;
 import org.springframework.web.bind.annotation.ExceptionHandler;
