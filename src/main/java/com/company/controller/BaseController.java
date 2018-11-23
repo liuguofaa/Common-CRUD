@@ -1,6 +1,6 @@
 package com.company.controller;
 
-import com.company.common.R;
+import com.company.common.resp.R;
 import com.company.model.Users;
 import com.company.valid.group.ValidGroupAdd;
 import org.springframework.beans.factory.annotation.Autowired;
