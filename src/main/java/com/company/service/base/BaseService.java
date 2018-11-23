@@ -1,7 +1,7 @@
 package com.company.service.base;
 
 import com.baomidou.mybatisplus.core.mapper.BaseMapper;
-import com.company.common.Page;
+import com.company.common.page.Page;
 import com.github.pagehelper.PageHelper;
 import org.springframework.beans.factory.annotation.Autowired;
 

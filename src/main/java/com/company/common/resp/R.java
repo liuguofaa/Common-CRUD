@@ -7,6 +7,11 @@ package com.company.common.resp;
  */
 public class R {
 
+
+    /**
+     * 成功响应
+     * @return
+     */
     public static ResponseData success(){
         return success(null);
     }
@@ -15,29 +20,45 @@ public class R {
     }
 
     /**
-     * 业务中应该使用这个
+     * 失败响应业务中应该使用这个
      * @param message
      * @return
      */
     public static ResponseData fail(String message){
-        return new ResponseData(ResponseCode.CODE_400.getCode(), message, null);
+        return new ResponseData(ResponseCode.CODE_417.getCode(), message, null);
     }
 
     /**
-     * 这两个一般ExceptionHandler中使用
+     * 自定义异常响应，ExceptionHandler中使用
      * @param message
      * @return
      */
-    public static ResponseData serverFail(String message){
-        return new ResponseData(ResponseCode.CODE_500.getCode(), message, null);
-    }
-    public static ResponseData diyFail(ResponseCode code, String message){
+    public static ResponseData fail(ResponseCode code, String message){
         return new ResponseData(code.getCode(), message, null);
     }
 
     public enum ResponseCode{
 
-        CODE_200(200),CODE_400(400),CODE_401(401),CODE_500(500);
+        /**
+         * 响应成功
+         */
+        CODE_200(200),
+        /**
+         * 参数异常
+         */
+        CODE_400(400),
+        /**
+         * 没有登录
+         */
+        CODE_401(401),
+        /**
+         * 业务异常
+         */
+        CODE_417(417),
+        /**
+         * 系统异常
+         */
+        CODE_500(500);
 
         private final Integer code;
 

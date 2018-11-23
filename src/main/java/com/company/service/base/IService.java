@@ -1,7 +1,6 @@
 package com.company.service.base;
 
-import com.company.common.Page;
-import com.github.pagehelper.PageInfo;
+import com.company.common.page.Page;
 
 import java.io.Serializable;
 

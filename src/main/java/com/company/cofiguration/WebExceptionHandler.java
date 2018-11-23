@@ -23,23 +23,38 @@ import java.util.Set;
 public class WebExceptionHandler {
 
 
+    /**
+     * 校验参数捕捉异常
+     * @param e
+     * @return
+     */
     @ExceptionHandler(ConstraintViolationException.class)
     public R.ResponseData constraintViolationException(ConstraintViolationException e) {
         Set<ConstraintViolation<?>> set =  e.getConstraintViolations();
-        return R.diyFail(R.ResponseCode.CODE_401, set.isEmpty() ? "" : set.iterator().next().getMessage());
+        return R.fail(R.ResponseCode.CODE_400, set.isEmpty() ? "" : set.iterator().next().getMessage());
     }
 
+    /**
+     * 系统服务异常
+     * @param e
+     * @return
+     */
     @ExceptionHandler(ServerException.class)
     public R.ResponseData serverException(ServerException e) {
         e.printStackTrace();
         log.error(e.getMessage(), e);
-        return R.fail(e.getMessage());
+        return R.fail(R.ResponseCode.CODE_417, e.getMessage());
     }
 
+    /**
+     * 最终异常
+     * @param e
+     * @return
+     */
     @ExceptionHandler(Exception.class)
     public R.ResponseData exception(Exception e) {
         e.printStackTrace();
         log.error("服务器异常", e);
-        return R.serverFail("服务器异常");
+        return R.fail(R.ResponseCode.CODE_500, "服务器异常");
     }
 }
