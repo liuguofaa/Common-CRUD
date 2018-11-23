@@ -1,4 +1,4 @@
-package com.company.common;
+package com.company.common.resp;
 
 /**
  * @author guofa.liu@kingtroldata.com

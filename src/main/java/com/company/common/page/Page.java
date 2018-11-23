@@ -1,4 +1,4 @@
-package com.company.common;
+package com.company.common.page;
 
 import com.github.pagehelper.PageSerializable;
 

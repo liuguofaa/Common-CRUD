@@ -1,4 +1,4 @@
-package com.company.common;
+package com.company.common.utils;
 
 import com.alibaba.fastjson.JSON;
 import com.alibaba.fastjson.serializer.SerializerFeature;
@@ -24,7 +24,7 @@ public class FastJson {
      * @param object
      * @return
      */
-    public String toJSONString(Object object){
+    public static String toJSONString(Object object){
         return JSON.toJSONString(object, DefaultSerializerFeature);
     }
 
@@ -35,7 +35,7 @@ public class FastJson {
      * @param <T>
      * @return
      */
-    public <T> T parseObject(String json, Class<T> clazz){
+    public static <T> T parseObject(String json, Class<T> clazz){
         return JSON.parseObject(json, clazz);
     }
 
@@ -46,7 +46,7 @@ public class FastJson {
      * @param <T>
      * @return
      */
-    public  <T> List<T> parseArray(String json, Class<T> clazz){
+    public static <T> List<T> parseArray(String json, Class<T> clazz){
         return JSON.parseArray(json, clazz);
     }
 }

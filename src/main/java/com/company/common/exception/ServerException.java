@@ -1,4 +1,4 @@
-package com.company.common;
+package com.company.common.exception;
 
 /**
  * @author guofa.liu@kingtroldata.com
