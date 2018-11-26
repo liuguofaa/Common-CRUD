@@ -2,7 +2,8 @@ package com.company.controller;
 
 import com.company.common.resp.R;
 import com.company.model.Users;
-import com.company.valid.group.ValidGroupAdd;
+import com.company.valid.group.ValidGroupDefault;
+import com.company.valid.group.ValidGroupUpdate;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.PathVariable;
@@ -37,7 +38,7 @@ public class BaseController {
     }
 
     @RequestMapping("/users/add")
-    @Validated(ValidGroupAdd.class)
+    @Validated({ValidGroupDefault.class})
     public R.ResponseData addUsers(@Valid Users users){
         usersService.insert(users);
         return R.success();
