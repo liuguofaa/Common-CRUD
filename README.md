@@ -2,7 +2,7 @@
 #### 通用CRUD
 #### logback日志
 #### validate参数校验(支持分组)
-#### Mysql redis连接(未配置连接池)
+#### Mysql redis连接
 #### pagehelper分页
 #### fastjson
 #### 全局异常捕获
