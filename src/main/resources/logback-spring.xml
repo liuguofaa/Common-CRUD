@@ -1,7 +1,7 @@
 <configuration>
 
     <property name="layout" value="%d %p [%t] %c{10}:%M:%L %m%n"/>
-    <property name="logfile" value="/Users/LGF/Documents/log/common-crud"/>
+    <springProperty scope="context" name="logfile" source="logging.file.name"/>
 
     <include resource="org/springframework/boot/logging/logback/defaults.xml"/>
     <include resource="org/springframework/boot/logging/logback/console-appender.xml"/>
@@ -10,9 +10,9 @@
         <encoder>
             <pattern>${layout}</pattern>
         </encoder>
-        <file>${logfile}.log</file>
+        <file>${logfile}</file>
         <rollingPolicy class="ch.qos.logback.core.rolling.TimeBasedRollingPolicy">
-            <fileNamePattern>${logfile}.log-%d{yyyy-MM-dd}</fileNamePattern>
+            <fileNamePattern>${logfile}-%d{yyyy-MM-dd}</fileNamePattern>
             <maxHistory>7</maxHistory>
         </rollingPolicy>
     </appender>

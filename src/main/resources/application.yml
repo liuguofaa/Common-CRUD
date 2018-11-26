@@ -6,4 +6,6 @@ spring:
     active: dev
 
 logging:
+  file:
+    name: d:/log/crud.log
   config: classpath:logback-spring.xml
